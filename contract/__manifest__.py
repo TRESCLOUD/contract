@@ -5,11 +5,11 @@
 # Copyright 2016-2017 Tecnativa - Carlos Dauden
 # Copyright 2017 Tecnativa - Vicent Cubells
 # Copyright 2016-2017 LasLabs Inc.
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
     'name': 'Contracts Management - Recurring',
-    'version': '10.0.4.3.0',
+    'version': '10.0.4.3.1',
     'category': 'Contract Management',
     'license': 'AGPL-3',
     'author': "OpenERP SA, "
@@ -29,6 +29,7 @@
         'views/account_analytic_contract_view.xml',
         'views/account_invoice_view.xml',
         'views/res_partner_view.xml',
+        'views/res_company.xml',
     ],
     'installable': True,
 }

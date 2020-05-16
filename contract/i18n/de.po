@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-29 00:41+0000\n"
-"PO-Revision-Date: 2019-02-22 15:50+0000\n"
+"PO-Revision-Date: 2019-06-28 13:42+0000\n"
 "Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #. module: contract
 #: model:mail.template,body_html:contract.email_contract_template
@@ -116,14 +116,14 @@ msgstr ""
 "background-repeat: repeat no-repeat;\">\n"
 "        <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: "
 "#DDD;\">\n"
-"            <strong style=\"text-transform:uppercase;\""
-">${object.company_id.name}</strong></h3>\n"
+"            <strong style=\"text-transform:uppercase;\">${object.company_id."
+"name}</strong></h3>\n"
 "    </div>\n"
 "    <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: "
 "16px; background-color: #F2F2F2;\">\n"
 "        <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
-"            ${object.company_id.partner_id.sudo().with_context(show_address="
-"True, html_format=True).name_get()[0][1] | safe}\n"
+"            ${object.company_id.partner_id.sudo()."
+"with_context(show_address=True, html_format=True).name_get()[0][1] | safe}\n"
 "        </span>\n"
 "        % if object.company_id.phone:\n"
 "            <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: "
@@ -134,8 +134,8 @@ msgstr ""
 "        % endif\n"
 "        % if object.company_id.website:\n"
 "            <div>\n"
-"                Web: <a href=\"${object.company_id.website}\""
-">${object.company_id.website}</a>\n"
+"                Web: <a href=\"${object.company_id.website}\">${object."
+"company_id.website}</a>\n"
 "            </div>\n"
 "        %endif\n"
 "        <p></p>\n"
@@ -245,12 +245,17 @@ msgid "Click to create a new contract."
 msgstr "Klicken Sie hier, um einen neuen Vertrag anzulegen."
 
 #. module: contract
+#: model:ir.model,name:contract.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: contract
 #: model:ir.model.fields,field_description:contract.field_account_analytic_contract_company_id
 msgid "Company"
 msgstr "Unternehmen"
 
 #. module: contract
-#: code:addons/contract/models/account_analytic_account.py:370
+#: code:addons/contract/models/account_analytic_account.py:386
 #, python-format
 msgid "Compose Email"
 msgstr "E-Mail verfassen"
@@ -264,7 +269,7 @@ msgid "Contract"
 msgstr "Vertrag"
 
 #. module: contract
-#: code:addons/contract/models/account_analytic_account.py:142
+#: code:addons/contract/models/account_analytic_account.py:144
 #, python-format
 msgid "Contract '%s' start date can't be later than end date"
 msgstr "Vertragsbeginn '%s' kann nicht später als das Vertragsende sein"
@@ -343,6 +348,24 @@ msgstr "Datum der nächsten Rechnung"
 #: selection:account.analytic.contract,recurring_rule_type:0
 msgid "Day(s)"
 msgstr "Tag(e)"
+
+#. module: contract
+#: model:ir.model.fields,help:contract.field_res_company_contract_pregenerate_days
+msgid ""
+"Days before next invoice date to generate draft invoices.\n"
+"This allows users to check the invoices before confirmation,\n"
+" and to send invoices to customers, before the invoice date."
+msgstr ""
+"Das ist die Anzahl der Tage vor der Erzeugung des nächsten "
+"Rechnungsentwurfes.\n"
+"Das erlaubt den Benutzern, die Rechnungen vor der Rechnungsgenehmigung zu "
+"prüfen,\n"
+"und die Rechnungen an Kunden vor dem Rechnungsdatum zu versenden."
+
+#. module: contract
+#: model:ir.model.fields,field_description:contract.field_res_company_contract_pregenerate_days
+msgid "Days to prepare invoices"
+msgstr "Tage zur Rechnungsvorbereitung"
 
 #. module: contract
 #: model:ir.model.fields,field_description:contract.field_account_analytic_contract_line_name
@@ -509,7 +532,7 @@ msgid "Partner and dependents"
 msgstr "Partner und Untergeordnete"
 
 #. module: contract
-#: code:addons/contract/models/account_analytic_account.py:231
+#: code:addons/contract/models/account_analytic_account.py:233
 #, python-format
 msgid "Please define a sale journal for the company '%s'."
 msgstr "Legen Sie bitte ein Verkaufsjournal für das Unternehmen '%s' fest."
@@ -656,22 +679,22 @@ msgid "Year(s)"
 msgstr "Jahr(e)"
 
 #. module: contract
-#: code:addons/contract/models/account_analytic_account.py:115
+#: code:addons/contract/models/account_analytic_account.py:117
 #, python-format
 msgid ""
 "You can't have a next invoicing date before the start of the contract '%s'"
 msgstr ""
-"Das Datum der nächsten Rechnung darf nicht vor Vertragsbeginn des Vertrags '%"
-"s' liegen"
+"Das Datum der nächsten Rechnung darf nicht vor Vertragsbeginn des Vertrags "
+"'%s' liegen"
 
 #. module: contract
-#: code:addons/contract/models/account_analytic_account.py:223
+#: code:addons/contract/models/account_analytic_account.py:225
 #, python-format
 msgid "You must first select a Customer for Contract %s!"
 msgstr "Sie müssen zuerst einen Kunden für den Vertrag '%s' auswählen!"
 
 #. module: contract
-#: code:addons/contract/models/account_analytic_account.py:313
+#: code:addons/contract/models/account_analytic_account.py:315
 #, python-format
 msgid ""
 "You must review start and end dates!\n"
@@ -681,19 +704,20 @@ msgstr ""
 "%s"
 
 #. module: contract
-#: code:addons/contract/models/account_analytic_account.py:106
+#: code:addons/contract/models/account_analytic_account.py:108
 #, python-format
 msgid "You must supply a customer for the contract '%s'"
 msgstr "Sie müssen einen Kunden für den Vertrag '%s' angeben"
 
 #. module: contract
-#: code:addons/contract/models/account_analytic_account.py:124
+#: code:addons/contract/models/account_analytic_account.py:126
 #, python-format
 msgid "You must supply a next invoicing date for contract '%s'"
-msgstr "Sie müssen das Datum der nächsten Rechnung für den Vertrag '%s' angeben"
+msgstr ""
+"Sie müssen das Datum der nächsten Rechnung für den Vertrag '%s' angeben"
 
 #. module: contract
-#: code:addons/contract/models/account_analytic_account.py:133
+#: code:addons/contract/models/account_analytic_account.py:135
 #, python-format
 msgid "You must supply a start date for contract '%s'"
 msgstr "Sie müssen den Vertragsbeginn für den Vertrag '%s' angeben"
